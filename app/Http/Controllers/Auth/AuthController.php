@@ -23,7 +23,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect('home')->with('login_success','ログイン成功しました！');
+        return redirect()->route('home')->with('login_success','ログイン成功しました！');
        }
 
        return back()->withErrors([
@@ -45,7 +45,7 @@ public function logout(Request $request)
 
     $request->session()->regenerateToken();
 
-    return redirect('/');
+    return redirect()->route('login.show')->with('logout','ログアウトしました！');
 }
     
 }

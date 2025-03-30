@@ -21,11 +21,9 @@
    </ul>
     @endforeach
     
-    @if (session('login_error'))   
-     <div class="alert alert-danger">
-       {{session('login_error')}}
-    </div>
-    @endif
+    <x-alert type="danger" :message="session('login_error')"/>
+    
+    <x-alert type="danger" :message="session('logout')"/>
 
   <label for="inputEmail" class="sr-only">メールアドレス</label>
   <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
